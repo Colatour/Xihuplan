@@ -1,6 +1,6 @@
 # xihuplan
 
-> A Vue.js project
+> 中午不知奧要吃什麼
 
 ## Build Setup
 
