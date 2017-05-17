@@ -37,7 +37,7 @@ export default {
         {name: '早餐店', price: 40, location: '西湖'}, 
         {name: '阿婆水餃', price: 70, location: '西湖'},
         {name: '有禮貌韓式', price: 70, location: '西湖'},
-        {name: '小巷子', price: 80-100, location: '西湖'},
+        {name: '小巷子', price: 100, location: '西湖'},
         {name: '海霸王炒飯', price: 70, location: '西湖'},
         {name: '很遠麵線', price: 30, location: '西湖'},
         {name: '牛肉湯餃', price: 80, location: '西湖'},
