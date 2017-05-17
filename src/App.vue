@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    中午要吃什麼？
-    <select>
+    中午吃什麼？
+    <select v-model='selected'>
       <option 
         v-for='(item, index) in locations'
-        :value=item.value
+        :value=item.location
         key='index'
       >
         {{item.name}}
       </option>
     </select>
-    <button class="vue-btn" @click='RandomEat'>選我</button>
+    <button class="vue-btn" @click='RandomEat'>點我</button>
     <br>
     <div class="col-md-4">
       <div class="character-card">
@@ -27,41 +27,43 @@
 export default {
   data () {
     return {
-      selected: {name: '西湖', value: 'xihu'},
+      selected: 'xihu',
       locations: [ 
-        {name: '西湖', value: 'xihu'}, 
-        {name: '台北車站', value: 'taipeistation'} 
+        {name: '西湖', location: 'xihu'}, 
+        {name: '台北車站', location: 'taipei'},
+        {name: '迴龍', location: 'huilong'} 
       ],
       eat: '',
       eats: [ 
-        {name: '早餐店', price: 40, location: '西湖'}, 
-        {name: '阿婆水餃', price: 70, location: '西湖'},
-        {name: '有禮貌韓式', price: 70, location: '西湖'},
-        {name: '小巷子', price: 100, location: '西湖'},
-        {name: '海霸王炒飯', price: 70, location: '西湖'},
-        {name: '很遠麵線', price: 30, location: '西湖'},
-        {name: '牛肉湯餃', price: 80, location: '西湖'},
-        {name: '麥當勞', price: 100, location: '西湖'},
-        {name: '肯德基', price: 100, location: '西湖'},
-        {name: '香菜甜不辣', price: 40, location: '西湖'},
-        {name: '火車便當', price: 60, location: '西湖'},
-        {name: '吵架花枝羹', price: 60, location: '西湖'}
+        {name: '早餐店', price: 40, location: 'xihu'}, 
+        {name: '阿婆水餃', price: 70, location: 'xihu'},
+        {name: '有禮貌韓式', price: 70, location: 'xihu'},
+        {name: '小巷子', price: 100, location: 'xihu'},
+        {name: '海霸王炒飯', price: 70, location: 'xihu'},
+        {name: '很遠麵線', price: 30, location: 'xihu'},
+        {name: '牛肉湯餃', price: 80, location: 'xihu'},
+        {name: '麥當勞', price: 100, location: 'xihu'},
+        {name: '肯德基', price: 100, location: 'xihu'},
+        {name: '香菜甜不辣', price: 40, location: 'xihu'},
+        {name: '火車便當', price: 60, location: 'xihu'},
+        {name: '吵架花枝羹', price: 60, location: 'xihu'},
+        {name: '好吃蛋餅', price: 25, location: 'huilong'}
       ]
     }
   },
   methods: {
     RandomEat() {
-      let array = this.eats.filter(this.isValue)
+      let location_array = this.eats.filter(this.isValue)
       let previous_eat = this.eat
-      let random_id = Math.floor(Math.random() * this.eats.length)
-      if (this.eats[random_id] === previous_eat) {
+      let random_id = Math.floor(Math.random() * location_array.length)
+      if (location_array[random_id] === previous_eat && location_array.length != 1) {
         this.RandomEat()
       }else {
-        this.eat = this.eats[random_id]
+        this.eat = location_array[random_id]
       }
     },
-    isValue() {
-      console.log();
+    isValue(value) {
+      return value.location == this.selected
     }
   },
   created() {
