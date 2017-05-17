@@ -1,6 +1,6 @@
 # xihuplan
 
-> 中午不知奧要吃什麼
+> 中午不知道要吃什麼
 
 ## Build Setup
 
