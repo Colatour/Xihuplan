@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "author": "Stoner609 <Stoner7969@gmail.com>",
   "private": true,
+  "homepage": "https://github.com/Colatour/Xihuplan",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "dependencies": {
     "vue": "^2.2.1"
