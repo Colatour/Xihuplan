@@ -10,7 +10,13 @@
         {{item.name}}
       </option>
     </select>
-    <button class="vue-btn" @click='RandomEat'>點我</button>
+    <button 
+      class="vue-btn" 
+      title='不可反悔'
+      @click='RandomEat'
+    >
+      點我
+    </button>
     <br>
     <div class="col-md-4">
       <div class="character-card">
@@ -47,7 +53,8 @@ export default {
         {name: '香菜甜不辣', price: 40, location: 'xihu'},
         {name: '火車便當', price: 60, location: 'xihu'},
         {name: '吵架花枝羹', price: 60, location: 'xihu'},
-        {name: '好吃蛋餅', price: 25, location: 'huilong'}
+        {name: '好吃蛋餅', price: 25, location: 'huilong'},
+        {name: '---', price: '---', location: 'taipei'}
       ]
     }
   },
