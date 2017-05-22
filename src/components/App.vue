@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class='col-md-4'>
     中午吃什麼？
     <select v-model='selected'>
       <option 
@@ -10,31 +10,20 @@
         {{item.name}}
       </option>
     </select>
-    <button 
-      class="vue-btn" 
-      title='不可反悔'
-      @click='RandomEat'
-    >
-      點我
-    </button>
-    <br>
-    <div class="col-md-4">
-      <div class="character-card">
-        <div class="card-block">
-          <h4 class="card-title">{{eat.name}}</h4>
-          <p class="card-text">平均價錢： {{eat.price}}</p>
-        </div>
-      </div>
-    </div>
+    <button class="vue-btn" title='不可反悔' @click='RandomEat'>點我</button>
+    <Item :item='eat' />
   </div>
 </template>
 
 <script>
+import Item from './Item.vue'
+
 export default {
   data () {
     return {
-      selected: 'xihu',
+      selected: '---',
       locations: [ 
+        {name: '請選擇地區', location: '---'}, 
         {name: '西湖', location: 'xihu'}, 
         {name: '台北車站', location: 'taipei'},
         {name: '迴龍', location: 'huilong'} 
@@ -54,9 +43,13 @@ export default {
         {name: '火車便當', price: 60, location: 'xihu'},
         {name: '吵架花枝羹', price: 60, location: 'xihu'},
         {name: '好吃蛋餅', price: 25, location: 'huilong'},
-        {name: '---', price: '---', location: 'taipei'}
+        {name: '噴街', price: 100, location: 'taipei'},
+        {name: '請選擇地區', price: '---', location: '---'}
       ]
     }
+  },
+  components: {
+    Item
   },
   methods: {
     RandomEat() {
@@ -87,10 +80,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 ul {
